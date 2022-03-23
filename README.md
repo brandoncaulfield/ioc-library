@@ -2,9 +2,7 @@
 
 ## How to use this library
 
-You have two options:
-
-1. Use the Dependency class in your application to access the dependencies specified in the depend
+Use the Dependency class in your application to access the dependencies specified in the library.
 
 ## What is IOC "Inversion of control"?
 
