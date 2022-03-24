@@ -1,13 +1,58 @@
-import { Dependencies } from "../index";
+import { Inject } from "../index";
 
-test("class instantiates", () => {
-  expect(new Dependencies()).toBeDefined();
+describe("Sanity Check", () => {
+  test("1 + 1 = 2", () => {
+    expect(1 + 1).toBe(2);
+  });
 });
 
-test("dependencies loaded correctly", () => {
-  const dependenciesObject = new Dependencies();
-  expect(dependenciesObject.Api.get()).toBe(200);
-  expect(dependenciesObject.Db.getItem("123abc")).toEqual({
-    itemId: "123abc",
+describe("Injection tests", () => {
+  test("class injection", () => {
+    class Engine {
+      engineCapacity: string;
+      constructor() {
+        this.engineCapacity = "2.0L";
+      }
+      getEngineCapacity() {
+        return this.engineCapacity;
+      }
+    }
+
+    @Inject([Engine])
+    class Car {
+      Engine: any;
+      Wheels: any;
+      model: string | undefined;
+      constructor(model: string) {
+        this.model = model;
+      }
+    }
+
+    const mercedes = new Car("mercedes");
+    expect(mercedes.Engine.engineCapacity).toBe("2.0L");
+  });
+  test("object injection", () => {
+    class Wheels {
+      wheelCount: number | undefined;
+      constructor() {
+        this.wheelCount = 4;
+      }
+      getWheels() {
+        return this.wheelCount;
+      }
+    }
+
+    @Inject([new Wheels()])
+    class Car {
+      Engine: any;
+      Wheels: any;
+      model: string | undefined;
+      constructor(model: string) {
+        this.model = model;
+      }
+    }
+
+    const mercedes = new Car("mercedes");
+    expect(mercedes.Wheels.wheelCount).toBe(4);
   });
 });

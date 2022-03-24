@@ -1,7 +1,39 @@
-import { Dependencies } from "../src";
+import { Inject } from "../src";
 
-const object: any = new Dependencies();
+class Engine {
+  engineCapacity: string;
+  constructor() {
+    this.engineCapacity = "2.0L";
+  }
+  getEngineCapacity() {
+    return this.engineCapacity;
+  }
+}
 
-console.log(object.Api.get());
+class Wheels {
+  wheelCount: number | undefined;
+  constructor() {
+    this.wheelCount = 4;
+  }
+  getWheels() {
+    return this.wheelCount;
+  }
+}
 
-console.log(object.Db.getItem("123abc"));
+@Inject([Engine, new Wheels()])
+class Car {
+  Engine: any;
+  Wheels: any;
+  model: string | undefined;
+  constructor(model: string) {
+    this.model = model;
+  }
+}
+
+const mercedes = new Car("mercedes");
+
+console.log(
+  mercedes.model,
+  mercedes.Engine.engineCapacity,
+  mercedes.Wheels.wheelCount
+);

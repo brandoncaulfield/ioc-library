@@ -1,19 +1,21 @@
-import { Api } from "./dependencies/api";
-import { Db } from "./dependencies/db";
+/**
+ * Inject function that adds new classes or objects to a class's prototype (as dependencies)
+ * @param modules
+ * @returns
+ */
 
-function _Inject(modules: any) {
+export function Inject(modules: any) {
   return function (target: any) {
-    debugger;
     modules.forEach((module: any) => {
-      target.prototype[module.name] = new module();
+      // Ifit's an instanitated class object just add it as a dependency
+      // console.log(`${module}: ${typeof module}`);
+      if (typeof module === "object") {
+        debugger;
+        target.prototype[module.constructor.name] = module;
+        // If the class is not instantiated yet, intantiate it before adding it as a dependency
+      } else if (typeof module === "function") {
+        target.prototype[module.name] = new module();
+      }
     });
   };
-}
-
-// Static injection
-@_Inject([Api, Db])
-export class Dependencies {
-  Api: any;
-  Db: any;
-  constructor() {}
 }

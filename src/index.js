@@ -1,26 +1,24 @@
 "use strict";
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
+/**
+ * Inject function that adds new classes or objects to a class's prototype (as dependencies)
+ * @param modules
+ * @returns
+ */
 Object.defineProperty(exports, "__esModule", { value: true });
-const dependencies_1 = require("./dependencies");
 function Inject(modules) {
     return function (target) {
-        debugger;
         modules.forEach((module) => {
-            target.prototype[module.name] = new module();
+            // Ifit's an instanitated class object just add it as a dependency
+            // console.log(`${module}: ${typeof module}`);
+            if (typeof module === "object") {
+                debugger;
+                target.prototype[module.constructor.name] = module;
+                // If the class is not instantiated yet, intantiate it before adding it as a dependency
+            }
+            else if (typeof module === "function") {
+                target.prototype[module.name] = new module();
+            }
         });
     };
 }
 exports.Inject = Inject;
-// Static injection
-let Dependencies = class Dependencies {
-    constructor() { }
-};
-Dependencies = __decorate([
-    Inject([dependencies_1.Api, dependencies_1.Db])
-], Dependencies);
-exports.Dependencies = Dependencies;

@@ -2,25 +2,99 @@
 
 ## How to use this library
 
-Use the Dependency class in your application to access the dependencies specified in the library.
+Import the Inject decorator into your application and use it as a class decorator to inject class and or objects into your main class as dependencies.
 
-## What is IOC "Inversion of control"?
+```
+
+import { Inject } from "ioc-library-example-1";
+
+@Inject([class, object])
+class Car {}
+
+```
+
+## Examples
+
+```
+
+import { Inject } from "ioc-library-example-1";
+
+class Engine {
+  engineCapacity: string;
+  constructor() {
+    this.engineCapacity = "2.0L";
+  }
+  getEngineCapacity() {
+    return this.engineCapacity;
+  }
+}
+
+class Wheels {
+  wheelCount: number | undefined;
+  constructor() {
+    this.wheelCount = 4;
+  }
+  getWheels() {
+    return this.wheelCount;
+  }
+}
+
+@Inject([Engine, new Wheels()])
+class Car {
+  Engine: any;
+  Wheels: any;
+  model: string | undefined;
+  constructor(model: string) {
+    this.model = model;
+  }
+}
+
+const mercedes = new Car("mercedes");
+
+console.log(
+  mercedes.model,
+  mercedes.Engine.engineCapacity,
+  mercedes.Wheels.wheelCount
+);
+
+```
+
+See the Examples subdirectory for examples you can run immediately.
+
+## Problem we're trying to solve
+
+To avoid tightly coupled modules, functions and classes ensuring code maintainablilty and ease of testing.
+
+## Important Concepts
+
+### What is a dependency
+
+A dependency is an object that another object depends on to run.
+
+### What is IOC "Inversion of control"?
 
 Inverasion of control is a programming concept where flow of control (execution of statements) is handled externally to your application code.
 
-## What does this IOC library do exactly?
+### What does this IOC library do exactly?
 
-This Ioc (Inversion of Control) library provides a way to pass (inject) dependencies through a class instead of declaring them inside your application code. In this library it will be achieved via dependency injection.
+This Ioc (Inversion of Control) library provides a way to pass (inject) dependencies (classes, objects, etc...) through a function instead of declaring them inside your class.
 
-## Why dependency injection?
+### Why dependency injection?
 
-Dependency injection (a form of "inversion of control") is a way to decouple your JavaScript dependencies from your app code and configure them in a separate place. If you need to "rewire" these dependencies you can do so using this IOC library, rather than directly in what can become very complex application code.
+Dependency injection (a form of "inversion of control") is a way to decouple your JavaScript dependencies from your app code and configure them separately. If you need to "rewire" or completely change these dependencies you can do so away from your application logic rather than directly in what can become very complex application code.
 
-It also supports the "separation of concerns" principle meaning you separate the resolution of your dependencies from the actual "use" of them in your app.
+It also supports the "separation of concerns" principle meaning you separate the resolution (e.g., instantiating a class) of your dependencies from the actual "use" of them in your app.
 
-Dependencies can be external libraries or code you've written yourself such as API or database calls. These dependencies might also rely on one another to work and dependency injection (inversion) allows you to abstract the logic needed for circular dependencies to a dedicated library like this one.
+### Currently Supports
 
-## Needs to have support for - Missing
+- Transient Classes
+- Transient Objects
+
+### Planned support for
 
 - Circular dependencies - dependencies that rely on one another to work
-- it is okay to support only transient objects and classes (no constants, functions and other types).
+- Constants, functions and other types.
+
+### Potential Issues
+
+- Error: "exports is not defined in ES module scope" - make sure you remove the "type": "module" from the package.json file.
