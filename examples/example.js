@@ -6,7 +6,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const src_1 = require("../src");
+const ioc_library_example_1_1 = require("ioc-library-example-1");
 class Engine {
     constructor() {
         this.engineCapacity = "2.0L";
@@ -29,7 +29,7 @@ let Car = class Car {
     }
 };
 Car = __decorate([
-    src_1.Inject([Engine, new Wheels()])
+    ioc_library_example_1_1.Inject([Engine, new Wheels()])
 ], Car);
 const mercedes = new Car("mercedes");
 console.log(mercedes.model, mercedes.Engine.engineCapacity, mercedes.Wheels.wheelCount);

@@ -1,4 +1,4 @@
-import { Inject } from "../src";
+import { Inject } from "ioc-library-example-1";
 
 class Engine {
   engineCapacity: string;
