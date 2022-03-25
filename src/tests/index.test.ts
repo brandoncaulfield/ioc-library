@@ -31,6 +31,7 @@ describe("Injection tests", () => {
     const mercedes = new Car("mercedes");
     expect(mercedes.Engine.engineCapacity).toBe("2.0L");
   });
+
   test("object injection", () => {
     class Wheels {
       wheelCount: number | undefined;

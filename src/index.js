@@ -1,10 +1,16 @@
 "use strict";
 /**
+ *
+ * TODO:
+ * 1. Possibly remove the need to not use decorators (If there is a need)
+ * 2.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+/**
  * Inject function that adds new classes or objects to a class's prototype (as dependencies)
  * @param modules
  * @returns
  */
-Object.defineProperty(exports, "__esModule", { value: true });
 function Inject(modules) {
     return function (target) {
         modules.forEach((module) => {
