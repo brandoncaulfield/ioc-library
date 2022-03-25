@@ -90,7 +90,7 @@ JavaScript [decorators](https://www.typescriptlang.org/docs/handbook/decorators.
 
 ### **What is IOC "Inversion of control"?**
 
-Inverasion of control is a programming concept where flow of control (execution of statements) is handled externally to your application code.
+Inversion of control is a programming concept where flow of control (execution of statements) is handled externally to your application code.
 
 ### **What does this IOC library do exactly?**
 
