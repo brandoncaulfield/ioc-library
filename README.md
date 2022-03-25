@@ -1,7 +1,19 @@
 # IOC (Inversion of Control) library
 
+## Aim
+
+The aim of this library is to provide a simple and easy way to use dependency injection with minimal setup and or configuration that can be used with TypeScript projects.
+
 ## How to use this library
 
+**Step: 1**
+Install the library
+
+```
+> npm install ioc-library-example-1
+```
+
+**Step 2**
 Import the Inject decorator into your application and use it as a class decorator to inject class and or objects into your main class as dependencies.
 
 ```
@@ -13,7 +25,7 @@ class Car {}
 
 ```
 
-## Examples
+**Full Example**
 
 ```
 
