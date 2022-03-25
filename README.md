@@ -5,7 +5,7 @@
 
 ## **Aim**
 
-The aim of this library is to provide a simple and easy way to use dependency injection with minimal setup and or configuration that can be used with TypeScript projects.
+The aim of this library is to provide a simple and easy way to use dependency injection with minimal setup and or configuration that can be used specifically with TypeScript projects.
 
 ## **How to use this library**
 
@@ -20,6 +20,7 @@ Install the library
 Import the Inject decorator into your application and use it as a class decorator to inject class and or objects into your main class as dependencies.
 
 ```
+// app.ts
 
 import { Inject } from "ioc-library-example-1";
 
@@ -31,6 +32,7 @@ class Car {}
 **Full Example**
 
 ```
+// app.ts
 
 import { Inject } from "ioc-library-example-1";
 
