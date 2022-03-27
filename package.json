@@ -1,13 +1,16 @@
 {
   "name": "ioc-library-example-1",
-  "version": "1.0.6",
+  "version": "1.0.9",
   "description": "Inversion of control/ Dependency injection library",
-  "main": "src/index.js",
-  "types": "src/index.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "test": "jest",
-    "prepubish": "tsc"
+    "test": "jest --coverage",
+    "prepublish": "tsc"
   },
+  "files": [
+    "/dist"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {

@@ -1,8 +1,7 @@
 /**
  *
  * TODO:
- * 1. Possibly remove the need to not use decorators (If there is a need)
- * 2.
+ * 1.
  */
 
 /**

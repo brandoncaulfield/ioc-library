@@ -107,11 +107,12 @@ It also supports the "separation of concerns" principle meaning you separate the
 - Transient Classes
 - Transient Objects
 
-## **Planned support for**
+## **Planned Support**
 
 - Circular dependencies - dependencies that rely on one another to work
 - Constants, functions and other types.
 
 ## **Potential Issues**
 
-- Error: "exports is not defined in ES module scope" - make sure you remove the "type": "module" from the package.json file.
+- Error: "exports is not defined in ES module scope" - **make sure you remove the "type": "module" from the package.json file.**
+- error TS1219: Experimental support for decorators is a feature that is subject to change in a future release. Set the 'experimentalDecorators' option in your 'tsconfig' or 'jsconfig' to remove this warning. - **Just a warning that decorators are still experimental. Add/ uncomment the option in your tsconfig file called "experimentalDecorators: true"**
