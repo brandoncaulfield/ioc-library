@@ -5,7 +5,7 @@
 
 ## **Aim**
 
-The aim of this library is to provide a simple and easy way to use dependency injection with minimal setup and or configuration that can be used specifically with TypeScript projects.
+The aim of this library is to provide a simple and easy way to use dependency injection with minimal setup and or configuration that can be used specifically with TypeScript projects (see Notes).
 
 ## **How to use this library**
 
@@ -116,3 +116,7 @@ It also supports the "separation of concerns" principle meaning you separate the
 
 - Error: "exports is not defined in ES module scope" - **make sure you remove the "type": "module" from the package.json file.**
 - error TS1219: Experimental support for decorators is a feature that is subject to change in a future release. Set the 'experimentalDecorators' option in your 'tsconfig' or 'jsconfig' to remove this warning. - **Just a warning that decorators are still experimental. Add/ uncomment the option in your tsconfig file called "experimentalDecorators: true"**
+
+## **Notes**
+
+- This library is designed to work with TypeScript specific projects using the TypeScript compiler. It has not been adequetly tested with vanilla JavaScript and [babel](https://babeljs.io/docs/en/babel-plugin-proposal-decorators).
