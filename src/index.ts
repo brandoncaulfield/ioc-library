@@ -2,7 +2,7 @@
  * Returns a function that adds classes/ or objects to a class's prototype.
  */
 
-export function Inject(modules: any) {
+export function Inject(modules: {}[]) {
   return function (target: any) {
     modules.forEach((module: any) => {
       // If it's an instanitated class object just add it as a dependency
