@@ -84,9 +84,9 @@ To avoid tightly coupled modules, functions and classes ensuring code maintainab
 
 ## **Important Concepts**
 
-### **What is a JavaScript decorator (Experimental)**
+### **What is a TypeScript decorator (Experimental)**
 
-JavaScript [decorators](https://www.typescriptlang.org/docs/handbook/decorators.html) are currently in "[stage 2 Draft](https://tc39.es/proposal-decorators/)" which means they are a proposed change that's likely to go through and be implemented, but are still considered experimental. Decorators are made use of in this library to allow you to inject your dependencies into a class.
+TypeScript [decorators](https://www.typescriptlang.org/docs/handbook/decorators.html) are currently in "[stage 2 Draft](https://tc39.es/proposal-decorators/)" which means they are a proposed change that's likely to go through and be implemented, but are still considered experimental. Decorators are made use of in this library to allow you to inject your dependencies into a class.
 
 ### **What is IOC "Inversion of control"?**
 
