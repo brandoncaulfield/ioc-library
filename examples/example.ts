@@ -21,7 +21,7 @@ class Wheels {
 }
 
 // @Inject([Engine, new Wheels()])
-@Inject([Engine, new Wheels())
+@Inject([Engine, new Wheels()])
 class Car {
   Engine: any;
   Wheels: any;

@@ -5,8 +5,8 @@
 export function Inject(modules: {}[]) {
   return function (target: any) {
     modules.forEach((module: any) => {
-      // If it's an instanitated class object just add it as a dependency
       if (typeof module === "object") {
+        // If it's an instanitated class object just add it as a dependency
         target.prototype[module.constructor.name] = module;
       } else if (typeof module === "function") {
         // If the class is not instantiated yet, intantiate it before adding it as a dependency
